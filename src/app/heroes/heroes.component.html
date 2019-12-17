@@ -1,14 +1,21 @@
-<h3>Heroes</h3> <!-- using uppercase pipe -->
+<h1>Heroes</h1> <!-- using uppercase pipe -->
 
-<div>
+
+<div *ngIf="selectedHero" class="hero-input">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span class="label">id: </span>{{selectedHero.id}}</div>
   <label>name:
-    <!-- [(ngModel)] = angular's 2-way data binding syntax -->
-    <input [(ngModel)]="hero.name" placeholder="name" />
+    <input [(ngModel)]="selectedHero.name" placeholder="name" />
   </label>
 </div>
+
 <div>
   <ul class="heroes">
-    <li *ngFor="let hero of heroes"> <!-- angular's 'repeater' directive -->
+    <li
+      *ngFor="let hero of heroes"
+      (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero"
+      >
       <span class="badge">{{ hero.id }}</span><span>{{ hero.name }}</span>
     </li>
   </ul>
