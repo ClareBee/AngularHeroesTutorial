@@ -1,0 +1,8 @@
+<h3>{{ hero.name | uppercase }}</h3> <!-- using uppercase pipe -->
+
+<div>
+  <label>name:
+    <!-- [(ngModel)] = angular's 2-way data binding syntax -->
+    <input [(ngModel)]="hero.name" placeholder="name" />
+  </label>
+</div>
