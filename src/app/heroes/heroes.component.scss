@@ -1,0 +1,42 @@
+@import "./src/styles.scss";
+
+.heroes {
+  list-style: none;
+  margin-top: 4rem;
+  font-size: 2.5rem;
+  color: $color-dark;
+  width: 80%;
+  box-shadow: $shadow-md;
+  border-radius: .5rem;
+
+  li {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s ease-in;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-primary;
+    }
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-light;
+    }
+
+    &.selected {
+      background-color: $color-secondary;
+      color: $color-light;
+    }
+
+    .badge {
+      background-color: $color-primary;
+      color: $color-light;
+      padding: .8rem;
+      border-radius: .5rem;
+      border: 3px solid $color-secondary;
+    }
+  }
+}
