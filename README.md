@@ -24,3 +24,7 @@ The method is called forRoot() because you configure the router at the applicati
 
 HttpClient = all methods return an RxJS Observable of something
 To catch errors, "pipe" observable result from http.get() through an RxJS catchError() operator.
+
+RxJS Subjects
+
+switchMap() preserves the original request order while returning only the observable from the most recent HTTP method call.

@@ -1,4 +1,5 @@
-<h1>Top Heroes</h1>
+<h1>Top 4 Heroes</h1>
+<app-hero-search></app-hero-search>
 <div class="top-heroes">
 <!-- interpolation binding for parameterized routes -->
   <a *ngFor="let hero of heroes" class="hero" routerLink="/detail/{{hero.id}}">

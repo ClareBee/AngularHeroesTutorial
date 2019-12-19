@@ -1,0 +1,19 @@
+@import "./src/styles.scss";
+
+#search-component {
+  margin: 2rem 0;
+  padding: 4rem;
+  border: 1px solid $color-dark;
+  box-shadow: $shadow-sm;
+  display: flex;
+  & > * {
+    margin: 0 2rem;
+  }
+
+  .search-result {
+    font-size: 1.6rem;
+    a {
+      font-size: 1.6rem;
+    }
+  }
+}
