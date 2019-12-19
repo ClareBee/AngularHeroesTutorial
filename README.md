@@ -16,3 +16,8 @@ hierarchical injection system - nested injectors common in angular
 > When you configure an injector with a provider, you associate that provider with a DI token. The injector maintains an internal token-provider map that it references when asked for a dependency. The token is the key to the map. *https://angular.io/guide/dependency-injection*
 
 Angular's HttpClient methods return RxJS Observables => re: methods asynchronous signature
+
+By convention, the module class name is AppRoutingModule and it belongs in the app-routing.module.ts in the src/app folder.
+
+>`imports: [ RouterModule.forRoot(routes) ]`
+The method is called forRoot() because you configure the router at the application's root level. The forRoot() method supplies the service providers and directives needed for routing, and performs the initial navigation based on the current browser URL.

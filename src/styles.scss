@@ -33,15 +33,38 @@ html {
   grid-gap: 1rem;
 }
 
-.header, .footer {
+.header,
+.footer {
   grid-column: 1 / -1;
 }
 
 .header {
   background-color: $color-dark;
   padding: 2rem;
+
   h1 {
     color: $color-light;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row-reverse;
+
+    &__item {
+      padding: 2rem 4rem;
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        background-color: darken($color-dark, 20%);
+      }
+    }
+
+    &__link {
+      font-size: 2.6rem;
+      text-transform: uppercase;
+      color: $color-light;
+      text-decoration: none;
+    }
   }
 }
 
@@ -51,12 +74,14 @@ html {
 }
 
 .content {
+  padding: 2rem;
   grid-column: 2 / -1;
 }
 
 .footer {
   background-color: $color-primary;
 }
+
 h1 {
   color: $color-dark;
   font-size: 6rem;

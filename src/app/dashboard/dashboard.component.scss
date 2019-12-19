@@ -1,0 +1,23 @@
+@import "./src/styles.scss";
+
+.top-heroes {
+  margin: 1rem 2rem 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-rows: repeat(10, minmax(15rem, 1fr));
+  grid-gap: 3rem;
+
+  .hero {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 3px solid $color-secondary;
+    border-radius: 4px;
+    box-shadow: $shadow-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: $color-dark;
+  }
+}
