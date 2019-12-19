@@ -1,0 +1,92 @@
+@import "./src/styles.scss";
+
+.grid-container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.header,
+.footer {
+  grid-column: 1 / -1;
+}
+
+.header {
+  background-color: $color-dark;
+  padding: 2rem;
+  height: 15rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+
+  h1 {
+    color: $color-light;
+  }
+
+  .menu {
+    display: flex;
+
+    &__item {
+      padding: 2rem 4rem;
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        background-color: darken($color-dark, 20%);
+      }
+    }
+
+    &__link {
+      font-size: 2.6rem;
+      text-transform: uppercase;
+      color: $color-light;
+      text-decoration: none;
+    }
+  }
+}
+
+.nav {
+  grid-column: 1 / 2;
+  min-height: calc(100vh - 23rem);
+  background-color: $color-secondary;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    min-height: auto;
+  }
+}
+
+.content {
+  padding: 2rem;
+  grid-column: 2 / -1;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    min-height: auto;
+  }
+}
+
+.footer {
+  height: 8rem;
+  padding: 1rem;
+  background-color: $color-primary;
+  display: flex;
+  align-items: flex-end;
+
+  &>* {
+    color: $color-light;
+  }
+
+  a:link {
+    color: $color-light;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-dark;
+    }
+  }
+}

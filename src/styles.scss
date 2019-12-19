@@ -11,6 +11,14 @@ sans-serif;
 $shadow-md: 0 2rem 4rem rgba(0, 0, 0, .2);
 $shadow-sm: 0 .5rem .25rem rgba(0, 0, 0, .2);
 
+// BREAKPOINTS
+
+$bp-x-large: 105.63em; // 1690px / 16px
+$bp-large: 80em; // 1280px / 16px
+$bp-medium: 61.25em; // 980px / 16px
+$bp-small: 46em; // 736px /16px
+$bp-x-small: 30em; // 480px / 16px
+
 // basic reset
 
 *,
@@ -24,67 +32,6 @@ $shadow-sm: 0 .5rem .25rem rgba(0, 0, 0, .2);
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px
-}
-
-.grid-container {
-  width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
-
-.header,
-.footer {
-  grid-column: 1 / -1;
-}
-
-.header {
-  background-color: $color-dark;
-  padding: 2rem;
-  height: 15rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  h1 {
-    color: $color-light;
-  }
-
-  .menu {
-    display: flex;
-
-    &__item {
-      padding: 2rem 4rem;
-      transition: all .2s ease-in-out;
-
-      &:hover {
-        background-color: darken($color-dark, 20%);
-      }
-    }
-
-    &__link {
-      font-size: 2.6rem;
-      text-transform: uppercase;
-      color: $color-light;
-      text-decoration: none;
-    }
-  }
-}
-
-.nav {
-  grid-column: 1 / 2;
-  min-height: calc(100vh - 23rem);
-  background-color: $color-secondary;
-}
-
-.content {
-  padding: 2rem;
-  grid-column: 2 / -1;
-}
-
-.footer {
-  height: 8rem;
-  background-color: $color-primary;
 }
 
 h1 {
@@ -157,4 +104,23 @@ ul {
   background-color: #eee;
   color: #aaa;
   cursor: auto;
+}
+
+@mixin links ($link, $visited, $hover, $active) {
+  & {
+    color: $link;
+
+    &:visited {
+      color: $visited;
+    }
+
+    &:hover {
+      color: $hover;
+    }
+
+    &:active,
+    &:focus {
+      color: $active;
+    }
+  }
 }

@@ -2,8 +2,11 @@
 
 h2 {
   color: $color-dark;
+  padding-top: 1rem;
   text-decoration: underline;
   text-decoration-color: $color-light;
+  background-color: rgba($color-light, .5);
+  text-align: center;
   @supports (text-underline-offset: 10px) or (-moz-text-underline-offset: 10px) {
     text-underline-offset: 10px;
     -moz-text-underline-offset: 10px;
@@ -35,6 +38,7 @@ h2 {
 .clear {
   background-color: $color-light;
   color: $color-primary;
+  justify-self: end;
 }
 
 .clear:hover,
