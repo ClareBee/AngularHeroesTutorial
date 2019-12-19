@@ -30,7 +30,6 @@ html {
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-gap: 1rem;
 }
 
 .header,
@@ -41,6 +40,11 @@ html {
 .header {
   background-color: $color-dark;
   padding: 2rem;
+  height: 15rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   h1 {
     color: $color-light;
@@ -48,7 +52,6 @@ html {
 
   .menu {
     display: flex;
-    flex-direction: row-reverse;
 
     &__item {
       padding: 2rem 4rem;
@@ -70,6 +73,7 @@ html {
 
 .nav {
   grid-column: 1 / 2;
+  min-height: calc(100vh - 23rem);
   background-color: $color-secondary;
 }
 
@@ -79,6 +83,7 @@ html {
 }
 
 .footer {
+  height: 8rem;
   background-color: $color-primary;
 }
 
@@ -114,4 +119,32 @@ input {
 
 ul {
   list-style: none;
+}
+
+.btn {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: uppercase;
+  box-shadow: $shadow-sm;
+  border: none;
+  border-radius: 0;
+  font-weight: 700;
+  color: $color-dark;
+  padding: 1rem 4rem;
+  margin: 2rem 0;
+  cursor: pointer;
+  cursor: hand;
+  transition: all .2s ease-in;
+}
+
+.btn:hover,
+.btn:active {
+  transform: translateY(2px);
+}
+
+.btn:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
 }

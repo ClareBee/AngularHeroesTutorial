@@ -15,7 +15,7 @@ h2 {
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
   grid-column-gap: 2rem;
-  padding: 1rem 4rem;
+  padding: 2rem 4rem;
 
   & ul {
     margin-top: 2rem;
@@ -33,29 +33,11 @@ h2 {
 
 
 .clear {
-  font-family: inherit;
-  font-size: inherit;
-  text-transform: uppercase;
-  box-shadow: $shadow-sm;
-  border: none;
-  border-radius: 0;
   background-color: $color-light;
   color: $color-primary;
-  font-weight: 700;
-  padding: 1rem 4rem;
-  cursor: pointer;
-  cursor: hand;
-  transition: all .2s ease-in;
 }
 
 .clear:hover,
 .clear:active {
-  transform: translateY(2px);
   background-color: darken($color-light, 10%);
-}
-
-.clear:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
 }

@@ -2,7 +2,7 @@
 
   <h2>Messages</h2>
   <div *ngIf="messageService.messages.length">
-    <button class="clear" (click)="messageService.clear()">clear</button>
+    <button class="btn clear" (click)="messageService.clear()">clear</button>
     <ul *ngFor='let message of messageService.messages'> <li>{{message}}</li></ul>
   </div>
 
