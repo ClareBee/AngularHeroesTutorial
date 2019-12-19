@@ -23,6 +23,7 @@
 
     &:hover {
       background-color: $color-primary;
+
       a {
         color: $color-light;
       }
@@ -32,19 +33,47 @@
       background-color: $color-primary;
       color: $color-light;
       padding: .8rem;
+      margin-right: .5rem;
       border-radius: .5rem;
       border: 3px solid $color-secondary;
     }
   }
+
   a {
     display: inline-block;
     width: 100%;
     height: 100%;
     text-decoration: none;
     color: $color-dark;
+
     &:visited {
       color: $color-primary;
     }
   }
 
+  .delete {
+    font-size: 2.6rem;
+    color: $color-dark;
+    background: none;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      cursor: hand;
+    }
+  }
+}
+
+.add-hero {
+  display: flex;
+  align-items: center;
+
+  .btn-add {
+    margin: 0 2rem;
+    transition: all .2s ease-in-out;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-light;
+    }
+  }
 }

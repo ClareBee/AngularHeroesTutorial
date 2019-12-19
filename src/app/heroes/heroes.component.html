@@ -1,11 +1,11 @@
 <h1>Heroes</h1>
 
-<div>
+<div class="add-hero">
   <label>Hero name:
     <input #heroName />
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
+  <button class="btn btn-add" (click)="add(heroName.value); heroName.value=''">
     add
   </button>
 </div>
@@ -15,7 +15,7 @@
       <a routerLink="/detail/{{hero.id}}">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </a>
-      <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+      <button class="delete" title="delete hero" (click)="delete(hero)">&times;</button>
     </li>
   </ul>
 </div>
