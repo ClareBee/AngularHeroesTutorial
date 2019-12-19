@@ -21,3 +21,6 @@ By convention, the module class name is AppRoutingModule and it belongs in the a
 
 >`imports: [ RouterModule.forRoot(routes) ]`
 The method is called forRoot() because you configure the router at the application's root level. The forRoot() method supplies the service providers and directives needed for routing, and performs the initial navigation based on the current browser URL.
+
+HttpClient = all methods return an RxJS Observable of something
+To catch errors, "pipe" observable result from http.get() through an RxJS catchError() operator.
