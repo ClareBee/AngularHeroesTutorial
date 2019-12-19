@@ -23,15 +23,8 @@
 
     &:hover {
       background-color: $color-primary;
-      color: $color-light;
-    }
-
-    &.selected {
-      background-color: $color-secondary;
-      color: $color-light;
-      font-weight: bold;
-      .badge {
-        border: 3px solid white;
+      a {
+        color: $color-light;
       }
     }
 
@@ -43,4 +36,15 @@
       border: 3px solid $color-secondary;
     }
   }
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: $color-dark;
+    &:visited {
+      color: $color-primary;
+    }
+  }
+
 }

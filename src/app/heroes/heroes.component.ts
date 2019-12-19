@@ -8,12 +8,7 @@ import { Hero } from '../hero';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
-    id: 1,
-    name: 'Wonder Woman'
-  }
   heroes: Hero[];
-  selectedHero;
 
   constructor(private heroService: HeroService) { }
 
@@ -26,9 +21,4 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
   }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-
 }
