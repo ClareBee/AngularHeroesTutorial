@@ -9,6 +9,7 @@ $color-light: #F7FFF6;
 $font-default: 'Helvetica',
 sans-serif;
 $shadow-md: 0 2rem 4rem rgba(0, 0, 0, .2);
+$shadow-sm: 0 .5rem .25rem rgba(0, 0, 0, .2);
 
 // basic reset
 
@@ -84,4 +85,8 @@ p {
 
 input {
   font-family: inherit;
+}
+
+ul {
+  list-style: none;
 }
