@@ -18,7 +18,7 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => (this.heroes = heroes));
+    this.heroService.getHeroes().subscribe(heroes => (this.heroes = this.alphabetize(heroes)));
   }
 
   add(name: string): void {
@@ -34,5 +34,17 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe(); // need to subscribe for service to send delete request to server
+  }
+  private alphabetize(unorderedHeroes){
+    return unorderedHeroes.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    })
+
   }
 }
