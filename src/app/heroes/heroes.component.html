@@ -1,13 +1,5 @@
 <h1>Heroes</h1> <!-- using uppercase pipe -->
-
-
-<div *ngIf="selectedHero" class="hero-input">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span class="label">id: </span>{{selectedHero.id}}</div>
-  <label>name:
-    <input [(ngModel)]="selectedHero.name" placeholder="name" />
-  </label>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail> <!-- property binding -->
 
 <div>
   <ul class="heroes">
