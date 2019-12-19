@@ -4,5 +4,8 @@
   <label>name:
     <input [(ngModel)]="hero.name" placeholder="name" />
   </label>
-  <button (click)="goBack()" class="btn">&larr; go back</button>
+  <div class="btn-container">
+    <button (click)="goBack()" class="btn">&larr; go back</button>
+    <button (click)="save()" class="btn btn-save">save</button>
+  </div>
 </div>
