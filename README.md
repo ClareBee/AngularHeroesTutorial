@@ -3,9 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 ___
 
-<img src="" alt="heroes">
-<img src="" alt="top 4">
-<img src="" alt="details">
+<img src="https://github.com/ClareBee/AngularHeroesTutorial/blob/master/src/assets/heroes.png" alt="heroes">
+<img src="https://github.com/ClareBee/AngularHeroesTutorial/blob/master/src/assets/top-4.png" alt="top 4">
+<img src="https://github.com/ClareBee/AngularHeroesTutorial/blob/master/src/assets/details.png" alt="details">
 
 ___
 
