@@ -27,4 +27,13 @@ describe('HeroDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display hero name', async () => {
+    const hero = { name: 'Bob', id: 1123 }
+    component.hero = hero;
+    await component.getHero(); // get the promise value
+    const compiled = fixture.debugElement.nativeElement;
+    console.log(compiled)
+    expect(compiled.querySelector('.hero-name').textContent).toContain('BOB Details');
+  })
 });
