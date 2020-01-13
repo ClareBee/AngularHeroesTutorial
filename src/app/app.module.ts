@@ -14,16 +14,10 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroService } from './hero.service';
+import { MessageService } from './message.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,7 +30,15 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
       dataEncapsulation: false
     })
   ],
-  providers: [],
+  providers: [ HeroService, MessageService],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+    DashboardComponent,
+    HeroSearchComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
