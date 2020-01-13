@@ -20,8 +20,9 @@ describe('HeroesComponent', () => {
     heroService = new HeroService(<any>httpClientSpy, messageService);
 
     TestBed.configureTestingModule({
-      imports: [RouterModule, HttpClientTestingModule,
-
+      imports: [
+        RouterModule,
+        HttpClientTestingModule,
       ],
       declarations: [ HeroesComponent ],
     })

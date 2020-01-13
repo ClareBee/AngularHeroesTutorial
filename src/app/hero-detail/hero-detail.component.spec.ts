@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 import { Hero } from '../hero';
 
 
