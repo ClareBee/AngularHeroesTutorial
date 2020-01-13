@@ -1,7 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs'
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { Observable, of } from 'rxjs'
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from "@angular/router/testing";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -13,24 +16,41 @@ import { Hero } from '../hero';
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
-  let httpClientSpy: { get: jasmine.Spy };
   let heroService: HeroService;
-  let messageService: MessageService;
+  const HERO_OBJECT: Hero = { name: 'Bob', id: 123 }
+
+  class MockHeroService {
+    public getHero(): Observable<Hero> {
+      return of(HERO_OBJECT);
+    }
+  };
 
   beforeEach(async(() => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    messageService = new MessageService();
-    heroService = new HeroService(<any>httpClientSpy, messageService);
-
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule],
-      declarations: [ HeroDetailComponent ]
+      declarations: [ HeroDetailComponent ],
+      providers: [
+        { provide: Location, useValue: window.location},
+        { provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: () => 123,
+              }
+            }
+          }
+        },
+        { provide: HeroService, useClass: MockHeroService }
+      ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroDetailComponent);
+    heroService = TestBed.get(HeroService);
+    spyOn(heroService, 'getHero').and.returnValue(of(HERO_OBJECT));
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -40,15 +60,10 @@ describe('HeroDetailComponent', () => {
   });
 
   it('should display hero name', async () => {
-    const expectedHero: Hero = { name: 'Bob', id: 1123 }
-    httpClientSpy.get.and.returnValue(of(expectedHero));
-    heroService.getHero(1123).subscribe(
-      hero => expect(hero).toEqual(expectedHero, 'expected hero'),
-      fail
-    );
-    expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
-    // const compiled = fixture.debugElement.nativeElement;
-    // console.log(compiled)
-    // expect(compiled.querySelector('.hero-name').textContent).toContain('BOB Details');
+    expect(component.hero.name).toBe('Bob')
+    expect(heroService.getHero).toHaveBeenCalled();
+
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.hero-name').textContent).toContain('BOB Details');
   })
 });

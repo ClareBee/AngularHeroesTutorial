@@ -29,6 +29,8 @@ export class HeroService {
 
   getHero(id: number) {
     const url = `${this.heroesUrl}/${id}`;
+    console.log(this.heroesUrl)
+    console.log('id', id)
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
